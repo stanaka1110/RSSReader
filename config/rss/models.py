@@ -1,5 +1,5 @@
 from django.db import models
-
+from .rss_parser import parse
 # Create your models here.
 class Link(models.Model):
 
@@ -8,16 +8,12 @@ class Link(models.Model):
     
     site_name = models.CharField(verbose_name="site_name", max_length=100)
     url = models.URLField(verbose_name="url")
+    article_list = {}
 
-    def __str(self):
-        return self.site_name
-
-class Article(models.Model):
-    class Meta:
-        db_table = "article"
-
-    title = models.CharField(verbose_name="title", max_length=200)
-    url = models.URLField(verbose_name="url")
+    def article_update(self):
+        self.article_list = parse(self.url)
+        
 
     def __str__(self):
-        return self.title
+        return self.site_name
+
