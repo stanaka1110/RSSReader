@@ -5,7 +5,9 @@ Django+RESTAPIのRSSリーダーWebアプリケーションです．
 フロントサイドが出来ていないので，Django RESTAPIのコンソール画面が出てきます．
 # Requirement
 Django4.0.3
+
 djangorestframework
+
 feedparser
 
 # Tutorial
